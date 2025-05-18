@@ -1,0 +1,411 @@
+<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Web Project</title>
+  <style>
+  /* Reset and base styles */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+    background-color: #f4f4f4;
+    }
+
+    /* Flexbox Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      color: white;
+      padding: 15px 20px;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* Common section box style */
+    section {
+      margin: 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    /* Grid Layout */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Contact Form Styles */
+    .contact-form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .contact-form button {
+      background-color: #079f13;
+      margin-top: 15px;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bolder;
+      font-size: 20px;
+    }
+    .contact-form button:hover {
+      
+      background-color: #097f9c;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+
+    /* To-Do List */
+    .todo-list input {
+      padding: 8px;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .todo-list button {
+      padding: 8px 12px;
+      margin-left: 10px;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .todo-items {
+      margin-top: 20px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .todo-items li {
+      background-color: #eee;
+      margin-bottom: 10px;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .todo-items li button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Image Gallery */
+    .image-gallery input[type="file"] {
+      margin-bottom: 10px;
+    }
+
+    #gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    #gallery div {
+      position: relative;
+    }
+
+    #gallery img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid #ccc;
+    }
+
+    .delete-image-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .box home-page{
+        text-align: center;
+    }
+
+    
+
+/* Typewriter effect for h1 */
+.typewriter {
+  overflow: hidden;
+  border-right: 0.15em solid #ece6e6;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 3s steps(40) forwards, blink 0.75s step-end ;
+  font-family: monospace;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(252, 248, 248) }
+  100%{opacity: 1;
+    border-color: transparent;}
+  }
+  .home-page{
+    font-size: 55px;
+  /* background-color: #4fc5ead8; */
+  background: linear-gradient(45deg, #B5A318 53%, #9E8E18 55%, #141617 42%, #01070D 81%, #000000 90%);
+  color: whitesmoke;
+  padding: 250px 15px;
+}
+
+/* Bounce in up for h3 */
+@keyframes bounceUp {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.bounce-up {
+  opacity: 0;
+  animation: bounceUp 1.5s ease-out 3s forwards; /* starts after typing */
+  text-transform: capitalize;
+  font-family: monospace;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+   <!-- Navigation --> 
+   <header>
+    <h1>Responsive Web Project</h1><br>
+    <nav>
+      <a onclick="showSection('contact-section')">Contact</a>
+      <a onclick="showSection('todo-section')">To-Do</a>
+      <a onclick="showSection('gallery-section')">Gallery</a>
+    </nav>
+  </header> 
+
+  <!-- Sections (only one shown at a time) -->
+
+   <section class=" box home-page" id="home-section">
+    <h1 class="typewriter">This is Home Page of my Task-2</h1>
+    <h3 class="bounce-up">Check out Nav Bar for other sessions</h3>
+  </section>
+  <section class="box contact-form" id="contact-section">
+    <h2>Contact Us</h2>
+    <form id="form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required />
+      <span class="error" id="nameError"></span>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+      <span class="error" id="emailError"></span>
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="4" required></textarea>
+      <span class="error" id="messageError"></span>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section class="box todo-list" id="todo-section">
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter a task..." />
+    <button onclick="addTask()">Add Task</button>
+    <ul class="todo-items" id="taskList"></ul>
+  </section>
+
+  <section class="box image-gallery" id="gallery-section">
+    <h2>Image Gallery</h2>
+    <input type="file" id="imageUploader" accept="image/*" multiple />
+    <div id="gallery"></div>
+  </section>
+
+  <script>
+    // Section Switching
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => {
+        sec.style.display = (sec.id === sectionId) ? 'block' : 'none';
+      });
+    }
+
+    // Show Contact section by default
+    window.onload = function () {
+      showSection('home-section');
+    };
+
+    // Contact Form Validation
+    document.getElementById('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      let valid = true;
+
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const messageError = document.getElementById('messageError');
+
+      nameError.textContent = '';
+      emailError.textContent = '';
+      messageError.textContent = '';
+
+      if (!name.value.trim()) {
+        nameError.textContent = 'Name is required';
+        valid = false;
+      }
+
+      if (!email.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value)) {
+        emailError.textContent = 'Valid email is required';
+        valid = false;
+      }
+
+      if (!message.value.trim()) {
+        messageError.textContent = 'Message is required';
+        valid = false;
+      }
+
+      if (valid) {
+        alert('Form submitted successfully!');
+        e.target.reset();
+      }
+    });
+
+    // To-Do List
+    function addTask() {
+      const taskInput = document.getElementById('taskInput');
+      const taskList = document.getElementById('taskList');
+      const taskText = taskInput.value.trim();
+
+      if (taskText === '') return;
+
+      const li = document.createElement('li');
+      li.textContent = taskText;
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.onclick = () => taskList.removeChild(li);
+
+      li.appendChild(deleteBtn);
+      taskList.appendChild(li);
+      taskInput.value = '';
+    }
+
+    // Image Gallery
+    const uploader = document.getElementById('imageUploader');
+    const gallery = document.getElementById('gallery');
+
+    uploader.addEventListener('change', function () {
+      const files = Array.from(uploader.files);
+
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const imgContainer = document.createElement('div');
+          const img = document.createElement('img');
+          img.src = e.target.result;
+
+          const delBtn = document.createElement('button');
+          delBtn.textContent = 'Delete';
+          delBtn.className = 'delete-image-btn';
+          delBtn.onclick = () => imgContainer.remove();
+
+          imgContainer.appendChild(img);
+          imgContainer.appendChild(delBtn);
+          gallery.appendChild(imgContainer);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
+</body>
+</html>
